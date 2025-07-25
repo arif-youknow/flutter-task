@@ -16,7 +16,7 @@ class LoginController extends GetxController {
     String email = emailController.text;
     String password = passwordController.text;
     
-    if(email=='arif@xyz.com' && password=='1234'){
+    if(email=='' && password==''){ //arif@xyz.com,1234
       Get.toNamed('/home');
     }
     else{

@@ -6,6 +6,7 @@ static const Color brandColor = Color(0xFF84C000);
 static const Color inputFieldcolor = Color(0xFFF7FFEF);
 static  const Color black = Colors.black;
 static const Color white = Colors.white;
+static const Color taskCardColor = Color(0xFFF7FFEF);
 
 
 }

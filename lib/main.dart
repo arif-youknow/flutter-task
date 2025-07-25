@@ -4,6 +4,8 @@ import 'package:flutter_task/screens/login_screen.dart';
 import 'package:flutter_task/screens/new_pass_screen.dart';
 import 'package:flutter_task/screens/otp_screen.dart';
 import 'package:flutter_task/screens/registration_screen.dart';
+import 'package:flutter_task/screens/task/add_edit_task_screen.dart';
+import 'package:flutter_task/screens/task/task_details.dart';
 import 'package:flutter_task/screens/verify_screen.dart';
 import 'package:get/get.dart';
 
@@ -29,6 +31,8 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/otp-screen', page: ()=> OTPScreen()),
         GetPage(name: '/setpassword', page:()=>SetNewPass()),
         GetPage(name: '/home', page: ()=> HomeScreen()),
+        GetPage(name: '/task-details', page: ()=> TaskDetailsScreen()),
+        GetPage(name: '/add-task', page: ()=> AddEditTaskScreen()),
 
 
       ],
