@@ -7,25 +7,28 @@ import 'package:flutter_task/widgets/bottom_nav.dart';
 import 'package:get/get.dart';
 
 class TaskDetailsScreen extends StatelessWidget {
-
-  final TaskController controller = Get.find();
+  
+  final TaskController controller = Get.put(TaskController());
   final Task task = Get.arguments;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.white,
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: AppColors.black),
           onPressed: () => Get.back(),
         ),
+        centerTitle: true,
         title: Text(
           'Tasks Details',
           style: TextStyle(
             fontFamily: AppFonts.primaryFont,
             color: AppColors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
           ),
         ),
       ),
@@ -41,35 +44,52 @@ class TaskDetailsScreen extends StatelessWidget {
               'Task Description',
               task.description,
             ),
-            Spacer(),
+           
             Row(
               children: [
                 Expanded(
                   child: OutlinedButton.icon(
-                    icon: Icon(Icons.delete_outline, color: Colors.black),
+                    icon: Icon(Icons.delete_outline, color: Colors.red),
                     label: Text(
                       'Delete Task',
-                      style: TextStyle(color: AppColors.white),
+                      style: TextStyle(
+                        fontFamily: AppFonts.primaryFont,
+                        color: AppColors.black,
+                      ),
                     ),
                     onPressed: () => controller.deleteTask(task.id),
                     style: OutlinedButton.styleFrom(
-                      side: BorderSide(color: AppColors.black),
-                      padding: EdgeInsets.symmetric(vertical: 15),
+                      side: BorderSide(color: Colors.red),
+      
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(width: 20),
                 Expanded(
                   child: ElevatedButton.icon(
-                    icon: Icon(Icons.edit_outlined),
-                    label: Text('Edit Task'),
+                    icon: Icon(Icons.edit_outlined, color: Colors.black,),
+                    label: Text('Edit Task',
+                    style: TextStyle(
+
+                      fontFamily: AppFonts.primaryFont,
+                      color: AppColors.black
+
+                    ),),
                     onPressed: () {
                       controller.loadTaskForEdit(task);
-                      Get.toNamed('/add-edit-task', arguments: task);
+                      Get.toNamed('/add-task', arguments: task);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.brandColor,
-                      padding: EdgeInsets.symmetric(vertical: 15),
+                      side: BorderSide(
+                        color: AppColors.brandColor
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                     ),
                   ),
                 ),
@@ -81,8 +101,6 @@ class TaskDetailsScreen extends StatelessWidget {
       ),
       bottomNavigationBar: CustomBottomNavBar(),
     );
-
-   
   }
 
   Widget _buildDetailRow(IconData icon, String title, String content) {
@@ -95,7 +113,9 @@ class TaskDetailsScreen extends StatelessWidget {
             SizedBox(width: 8),
             Text(
               title,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontFamily: AppFonts.primaryFont,
+                fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -104,7 +124,7 @@ class TaskDetailsScreen extends StatelessWidget {
           padding: const EdgeInsets.only(left: 32.0),
           child: Text(
             content,
-            style: TextStyle(fontSize: 16, color: Colors.grey[700]),
+            style: TextStyle(fontFamily: AppFonts.primaryFont, fontSize: 16, color: Colors.grey[700]),
           ),
         ),
         Divider(height: 30),

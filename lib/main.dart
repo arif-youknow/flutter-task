@@ -1,16 +1,23 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_task/screens/home_screen.dart';
 import 'package:flutter_task/screens/login_screen.dart';
 import 'package:flutter_task/screens/new_pass_screen.dart';
 import 'package:flutter_task/screens/otp_screen.dart';
 import 'package:flutter_task/screens/registration_screen.dart';
-import 'package:flutter_task/screens/task/add_edit_task_screen.dart';
+import 'package:flutter_task/screens/task/add_task.dart';
 import 'package:flutter_task/screens/task/task_details.dart';
 import 'package:flutter_task/screens/verify_screen.dart';
 import 'package:get/get.dart';
+import 'package:device_preview/device_preview.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    DevicePreview(
+    enabled: !kReleaseMode,
+    builder: (context) => MyApp(),
+  ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -32,7 +39,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/setpassword', page:()=>SetNewPass()),
         GetPage(name: '/home', page: ()=> HomeScreen()),
         GetPage(name: '/task-details', page: ()=> TaskDetailsScreen()),
-        GetPage(name: '/add-task', page: ()=> AddEditTaskScreen()),
+        GetPage(name: '/add-task', page: ()=> AddTaskScreen()),
 
 
       ],

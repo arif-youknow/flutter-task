@@ -30,7 +30,7 @@ class CustomBottomNavBar extends StatelessWidget {
         child: SizedBox(
           height: 70,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               _buildNavItem(
                 icon: Icons.home,
