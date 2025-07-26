@@ -55,7 +55,7 @@ class CustomBottomNavBar extends StatelessWidget {
                 label: 'Profile',
                 color: Colors.black,
                 onTap: () {
-                  // TODO: Profile page
+                  Get.toNamed('/profile');
                 },
               ),
             ],

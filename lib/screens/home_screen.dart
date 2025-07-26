@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
         title: Row(
           children: [
             CircleAvatar(
-              backgroundImage: NetworkImage('https://i.pravatar.cc/150?u=mojahid'),
+              backgroundImage: AssetImage('assets/images/user.png'),
             ),
             SizedBox(width: 10),
             Column(

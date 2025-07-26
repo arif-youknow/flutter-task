@@ -4,6 +4,7 @@ import 'package:flutter_task/screens/home_screen.dart';
 import 'package:flutter_task/screens/login_screen.dart';
 import 'package:flutter_task/screens/new_pass_screen.dart';
 import 'package:flutter_task/screens/otp_screen.dart';
+import 'package:flutter_task/screens/profile/profile_screen.dart';
 import 'package:flutter_task/screens/registration_screen.dart';
 import 'package:flutter_task/screens/task/add_task.dart';
 import 'package:flutter_task/screens/task/task_details.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/home', page: ()=> HomeScreen()),
         GetPage(name: '/task-details', page: ()=> TaskDetailsScreen()),
         GetPage(name: '/add-task', page: ()=> AddTaskScreen()),
+        GetPage(name: '/profile', page: ()=> ProfileScreen() ),
 
 
       ],
